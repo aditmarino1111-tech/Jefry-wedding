@@ -4,32 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Tags untuk WhatsApp & Social Media -->
+    <!-- JUDUL HALAMAN -->
     <title>Undangan Pernikahan Jefry & Farah</title>
-    <meta name="title" content="Undangan Pernikahan Jefry & Farah">
-    <meta name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.">
-    
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jefry-farah-wedding.com/"> <!-- Ganti dengan URL website Anda nanti -->
-    <meta property="og:title" content="The Wedding of Jefry & Farah">
-    <meta property="og:description" content="Selasa & Rabu, 19-20 Mei 2026. Klik untuk melihat detail undangan kami.">
-    <meta property="og:image" content="https://i.ibb.co.com/zTrTdbrq/images-4.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jefry-farah-wedding.com/">
-    <meta property="twitter:title" content="The Wedding of Jefry & Farah">
-    <meta property="twitter:description" content="Kami mengundang Anda untuk merayakan hari bahagia kami.">
-    <meta property="twitter:image" content="https://i.ibb.co.com/zTrTdbrq/images-4.jpg">
+    <!-- META TAGS UNTUK WHATSAPP / SOSIAL MEDIA -->
+    <meta property="og:title" content="The Wedding of Jefry & Farah">
+    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.">
+    <meta property="og:image" content="https://i.ibb.co.com/bRsqF4y8/images-4.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://undangan-jefry-farah.com">
+    <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --gold: #d4af37;
             --java-black: #0c0c0c;
             --cream: #f9f7f2;
+            --soft-bg: #fdfbf7;
         }
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -73,9 +68,31 @@
             backdrop-filter: blur(5px);
         }
 
+        .bg-subtle-wedding {
+            background-color: #0c0c0c;
+            background-image: 
+                linear-gradient(rgba(12, 12, 12, 0.8), rgba(12, 12, 12, 0.8)),
+                url('https://www.transparenttextures.com/patterns/pinstripe.png'); 
+        }
+
+        .bg-gamelan-pattern {
+            position: relative;
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2034870536/display_1500/stock-photo-gamelan-traditional-javanese-musical-instruments-2034870536.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .bg-gamelan-pattern::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(12, 12, 12, 0.92);
+            z-index: 0;
+        }
+
         .parallax-bg {
             position: relative;
-            background-image: url('https://i.ibb.co.com/zTrTdbrq/images-4.jpg');
+            background-image: url('https://i.ibb.co.com/bRsqF4y8/images-4.jpg');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -84,7 +101,7 @@
 
         .bg-quotes-couple {
             position: relative;
-            background-image: url('https://i.ibb.co.com/zTrTdbrq/images-4.jpg');
+            background-image: url('https://i.ibb.co.com/bRsqF4y8/images-4.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -135,15 +152,60 @@
         #wish-container::-webkit-scrollbar { width: 4px; }
         #wish-container::-webkit-scrollbar-track { background: transparent; }
         #wish-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        
+        .gamelan-decor {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            filter: sepia(1) saturate(2) brightness(0.8);
+        }
+
+        /* Iframe hidden for background music */
+        #youtube-player-container {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .spinner {
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-left-color: var(--gold);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .bg-texture-cream {
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-color: #fdfbf7;
+        }
+        
+        .corner-ornament {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
     </style>
 </head>
 <body onscroll="checkVisibility()">
 
-    <audio id="weddingMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c352787383.mp3?filename=traditional-gamelan-java-11005.mp3" type="audio/mpeg">
-    </audio>
+    <!-- YouTube Player Container -->
+    <div id="youtube-player-container">
+        <div id="player"></div>
+    </div>
 
+    <!-- Music Toggle Button -->
     <div id="musicBtn" class="music-control hidden" onclick="toggleMusic()">
         <svg id="musicIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18V5l12-2v13"></path>
@@ -152,9 +214,10 @@
         </svg>
     </div>
 
+    <!-- COVER SECTION -->
     <div id="cover" class="fixed inset-0 z-[100] flex flex-col items-center justify-center text-center transition-all duration-1000">
         <div class="absolute inset-0 z-0">
-            <img src="https://i.ibb.co.com/zTrTdbrq/images-4.jpg" class="w-full h-full object-cover object-center" alt="Background">
+            <img src="https://i.ibb.co.com/bRsqF4y8/images-4.jpg" class="w-full h-full object-cover object-center" alt="Background Jefry Farah">
             <div class="absolute inset-0 bg-overlay"></div>
         </div>
 
@@ -185,19 +248,23 @@
 
             <div class="mb-8">
                 <p class="text-[10px] tracking-[0.4em] uppercase text-stone-400 mb-2">Katur Dhumateng:</p>
-                <p class="text-2xl font-light italic">Tamu Undangan</p>
+                <p class="text-2xl font-light italic text-white">Tamu Undangan</p>
             </div>
             
-            <button onclick="openInvitation()" class="px-10 py-3 border border-gold text-gold font-jawa text-xs hover:bg-gold hover:text-black transition duration-500 uppercase tracking-[0.2em]">
+            <button onclick="openInvitation()" class="px-10 py-3 border border-gold text-gold font-jawa text-xs hover:bg-gold hover:text-black transition duration-500 uppercase tracking-[0.2em] bg-black/40 backdrop-blur-sm">
                 Buka Undangan
             </button>
         </div>
     </div>
 
-    <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000 bg-subtle-wedding">
         
-        <section class="pt-24 pb-0 flex flex-col items-center justify-center p-8 text-center bg-[#0a0a0a]">
-            <div class="animate-up max-w-5xl z-10 w-full">
+        <section class="pt-24 pb-0 flex flex-col items-center justify-center p-8 text-center bg-gamelan-pattern relative overflow-hidden">
+            <img src="https://i.ibb.co.com/bRsqF4y8/images-4.jpg" class="gamelan-decor top-0 -left-20 w-80 rotate-12" alt="">
+            <img src="https://i.ibb.co.com/bRsqF4y8/images-4.jpg" class="gamelan-decor bottom-0 -right-20 w-80 -rotate-12" alt="">
+
+            <div class="animate-up max-w-5xl z-10 w-full relative">
                 <h2 class="font-jawa text-xl text-gold mb-16 italic tracking-widest">Assalamu’alaikum Wr. Wb.</h2>
                 
                 <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-start mb-24">
@@ -207,7 +274,7 @@
                         </div>
                         <h2 class="font-script text-5xl md:text-6xl text-gold mb-4">Jefry Aziz Suwito</h2>
                         <p class="text-stone-400 text-sm mb-1 uppercase tracking-widest font-jawa">Putra Kakung Saking:</p>
-                        <p class="text-xl font-bold">Bapak Suwito & Ibu Sri Bidayati</p>
+                        <p class="text-xl font-bold text-white">Bapak Suwito & Ibu Sri Bidayati</p>
                         <p class="text-xs text-stone-500 mt-2 tracking-widest italic">Putra Pertama</p>
                     </div>
 
@@ -217,7 +284,7 @@
                         </div>
                         <h2 class="font-script text-5xl md:text-6xl text-gold mb-4">Nur Farah Indah Sari</h2>
                         <p class="text-stone-400 text-sm mb-1 uppercase tracking-widest font-jawa">Putri Pembajeng Saking:</p>
-                        <p class="text-xl font-bold">Bapak Sartono & Ibu Supiatun</p>
+                        <p class="text-xl font-bold text-white">Bapak Sartono & Ibu Supiatun</p>
                         <p class="text-xs text-stone-500 mt-2 tracking-widest italic">Putri Kedua</p>
                     </div>
                 </div>
@@ -234,48 +301,70 @@
             </div>
         </section>
 
-        <section class="py-24 bg-stone-900 px-6 text-center border-y border-gold/10">
-            <div class="animate-up max-w-4xl mx-auto">
+        <section class="py-24 bg-stone-900 px-6 text-center border-y border-gold/10 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0 100 C 20 0 50 0 100 100" stroke="white" fill="transparent" stroke-width="0.1" />
+                </svg>
+            </div>
+            
+            <div class="animate-up max-w-4xl mx-auto relative z-10">
                 <h2 class="font-jawa text-2xl text-gold mb-12 tracking-widest">WAKTU & LOKASI</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="timer-box p-8 rounded-xl border border-gold/20">
+                    <div class="timer-box p-8 rounded-xl border border-gold/20 bg-black/40 backdrop-blur-sm">
                         <h3 class="font-jawa text-gold text-lg mb-4">AKAD NIKAH</h3>
                         <p class="text-stone-300 mb-2">Selasa, 19 Mei 2026</p>
                         <p class="text-stone-400 italic">Pukul 09.00 WIB - Selesai</p>
                     </div>
-                    <div class="timer-box p-8 rounded-xl border border-gold/20">
+                    <div class="timer-box p-8 rounded-xl border border-gold/20 bg-black/40 backdrop-blur-sm">
                         <h3 class="font-jawa text-gold text-lg mb-4">RESEPSI</h3>
                         <p class="text-stone-300 mb-2">Rabu, 20 Mei 2026</p>
                         <p class="text-stone-400 italic">Pukul 11.00 WIB - Selesai</p>
                     </div>
                 </div>
-                <div class="mt-12 timer-box p-8 rounded-xl border border-gold/20">
+                <div class="mt-12 timer-box p-8 rounded-xl border border-gold/20 bg-black/40 backdrop-blur-sm">
                     <h3 class="font-jawa text-gold text-lg mb-4 uppercase">Lokasi Acara Resepsi</h3>
                     <p class="text-stone-200 mb-6 leading-relaxed">
                         Dsn Nginjen rt04 rw01 Ds Pandanpancur<br>
                         Kec Deket Kab Lamongan
                     </p>
-                    <a href="https://maps.google.com" target="_blank" class="inline-block px-10 py-3 bg-gold/20 border border-gold/60 text-gold text-xs rounded-full hover:bg-gold hover:text-black transition-all duration-500 font-bold tracking-widest">
+                    <a href="https://maps.app.goo.gl/95u3yS4E2q6qf8Yv8" target="_blank" class="inline-block px-10 py-3 bg-gold/20 border border-gold/60 text-gold text-xs rounded-full hover:bg-gold hover:text-black transition-all duration-500 font-bold tracking-widest">
                         LIHAT LOKASI DI GOOGLE MAPS
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-[#f9f7f2] px-6 text-center text-stone-800">
-            <div class="animate-up max-w-2xl mx-auto">
+        <section class="py-24 bg-texture-cream px-6 text-center text-stone-800 relative">
+            <svg class="corner-ornament top-0 left-0" viewBox="0 0 100 100" fill="currentColor" style="color: #d4af37">
+                <path d="M0 0 Q 50 0 50 50 Q 0 50 0 0 Z" opacity="0.1" />
+                <path d="M0 20 Q 30 20 30 50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+            </svg>
+            <svg class="corner-ornament bottom-0 right-0 rotate-180" viewBox="0 0 100 100" fill="currentColor" style="color: #d4af37">
+                <path d="M0 0 Q 50 0 50 50 Q 0 50 0 0 Z" opacity="0.1" />
+                <path d="M0 20 Q 30 20 30 50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+            </svg>
+
+            <div class="animate-up max-w-2xl mx-auto relative z-10">
                 <h2 class="font-jawa text-2xl text-[#b08d26] mb-4 tracking-widest">UCAPAN & DOA RESTU</h2>
                 <p class="text-stone-500 italic mb-10">Berikan ucapan serta doa restu Anda kepada kedua mempelai</p>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-stone-200 text-left mb-12">
+                <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-stone-200 text-left mb-12">
                     <form id="wish-form" onsubmit="submitWish(event)">
                         <div class="mb-4">
                             <label class="block text-xs font-jawa uppercase tracking-widest mb-2 text-stone-600">Nama Anda</label>
-                            <input type="text" id="wish-name" required class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:border-gold transition-colors text-stone-800" placeholder="Masukkan nama...">
+                            <input type="text" id="wish-name" required class="w-full bg-stone-50/50 border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:border-gold transition-colors text-stone-800" placeholder="Masukkan nama...">
                         </div>
-                        <div class="mb-6">
+                        <div class="mb-4">
                             <label class="block text-xs font-jawa uppercase tracking-widest mb-2 text-stone-600">Pesan & Doa</label>
-                            <textarea id="wish-message" required rows="4" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:border-gold transition-colors text-stone-800" placeholder="Tuliskan doa terbaik Anda..."></textarea>
+                            <div class="relative">
+                                <textarea id="wish-message" required rows="4" class="w-full bg-stone-50/50 border border-stone-200 px-4 py-3 rounded-lg focus:outline-none focus:border-gold transition-colors text-stone-800 pr-12" placeholder="Tuliskan doa terbaik Anda..."></textarea>
+                                <button type="button" onclick="generateAIWish()" id="ai-btn" class="absolute top-2 right-2 p-2 bg-white/50 hover:bg-stone-100 rounded-full transition-colors group shadow-sm" title="Bantu saya menulis doa dengan AI">
+                                    <span id="ai-spinner" class="spinner hidden"></span>
+                                    <span id="ai-sparkles">✨</span>
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-stone-400 mt-1 italic">✨ Klik ikon sparkle untuk bantuan AI menulis ucapan</p>
                         </div>
                         <button type="submit" class="w-full py-4 bg-[#b08d26] text-white font-jawa text-xs rounded-lg hover:bg-stone-800 transition-all duration-500 uppercase tracking-[0.2em] shadow-lg">
                             Kirim Ucapan
@@ -284,7 +373,7 @@
                 </div>
 
                 <div id="wish-container" class="max-h-[500px] overflow-y-auto space-y-4 pr-2">
-                    <div class="bg-white/70 p-6 rounded-xl border border-stone-200 text-left shadow-sm">
+                    <div class="bg-white/90 p-6 rounded-xl border border-stone-200 text-left shadow-sm">
                         <p class="font-bold text-stone-800 mb-1">Keluarga Besar Bpk. Slamet</p>
                         <p class="text-stone-600 text-sm italic">"Selamat menempuh hidup baru Jefry & Farah. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Amin."</p>
                     </div>
@@ -295,93 +384,160 @@
         <section class="py-24 bg-amplop-wayang text-center relative overflow-hidden px-6">
             <div class="animate-up max-w-lg mx-auto relative z-10">
                 <h2 class="font-jawa text-2xl text-gold mb-6 tracking-widest">AMPLOP DIGITAL</h2>
-                <div class="timer-box p-8 rounded-xl border border-gold/30 bg-black/60 backdrop-blur-md flex flex-col items-center shadow-2xl">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" class="h-8 mb-6 filter brightness-125" alt="Bank BRI">
-                    <p id="rekening" class="text-xl md:text-2xl font-bold font-jawa mb-4 tracking-widest gold-text">630401025317537</p>
-                    <p class="text-stone-200 mb-8 font-semibold uppercase tracking-wider">a.n Jefry Aziz Suwito</p>
-                    <button onclick="copyAccount()" class="px-8 py-3 bg-gold/20 border border-gold/60 text-gold text-xs rounded-full hover:bg-gold hover:text-black transition-all duration-500 font-bold tracking-widest uppercase">
-                        Salin Rekening
-                    </button>
-                    <p id="copy-msg" class="text-sm mt-3 text-green-400 opacity-0 transition-opacity italic">Berhasil disalin!</p>
+                <div class="timer-box p-8 rounded-xl border border-gold/30">
+                    <p class="text-stone-300 mb-6 italic">Doa restu Anda merupakan hadiah terindah. Namun jika ingin memberikan tanda kasih, dapat melalui:</p>
+                    
+                    <div class="bg-black/40 p-6 rounded-lg border border-gold/20 mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="h-6 mx-auto mb-4 invert" alt="BCA">
+                        <p class="text-white font-bold tracking-widest mb-1">123456789</p>
+                        <p class="text-gold text-xs uppercase tracking-widest">A.N Jefry Aziz Suwito</p>
+                    </div>
+
+                    <div class="bg-black/40 p-6 rounded-lg border border-gold/20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" class="h-6 mx-auto mb-4 invert" alt="Mandiri">
+                        <p class="text-white font-bold tracking-widest mb-1">987654321</p>
+                        <p class="text-gold text-xs uppercase tracking-widest">A.N Nur Farah Indah Sari</p>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <footer class="py-20 bg-black text-center border-t border-gold/10">
-            <h2 class="font-script text-6xl text-stone-500">Jefry & Farah</h2>
-            <p class="text-[10px] text-stone-700 tracking-[0.5em] mt-6 uppercase italic">Matur Nuwun</p>
-        </footer>
     </main>
 
     <script>
-        const audio = document.getElementById("weddingMusic");
-        const musicBtn = document.getElementById("musicBtn");
-        const musicIcon = document.getElementById("musicIcon");
-        let isPlaying = false;
+        // API YOUTUBE CONFIG
+        let player;
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'f_6j7F0R9p8', // Video ID instrumen Gamelan
+                playerVars: {
+                    'autoplay': 0,
+                    'loop': 1,
+                    'playlist': 'f_6j7F0R9p8'
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            console.log("Audio Ready");
+        }
+
+        let isPlaying = false;
         function toggleMusic() {
+            if (!player) return;
+            const btn = document.getElementById('musicBtn');
             if (isPlaying) {
-                audio.pause();
-                musicIcon.classList.remove("rotate");
+                player.pauseVideo();
+                btn.classList.remove('rotate');
             } else {
-                audio.play();
-                musicIcon.classList.add("rotate");
+                player.playVideo();
+                btn.classList.add('rotate');
             }
             isPlaying = !isPlaying;
         }
 
-        const weddingDate = new Date("May 20, 2026 11:00:00").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds_real").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-        }, 1000);
-
         function openInvitation() {
             const cover = document.getElementById('cover');
             const main = document.getElementById('main-content');
-            
-            audio.play().then(() => {
-                isPlaying = true;
-                musicIcon.classList.add("rotate");
-                musicBtn.classList.remove("hidden");
-            }).catch(e => { 
-                console.log("Audio play prevented");
-                musicBtn.classList.remove("hidden"); 
-            });
+            const musicBtn = document.getElementById('musicBtn');
 
-            cover.style.transform = 'translateY(-100%)';
-            cover.style.opacity = '0';
+            cover.classList.add('opacity-0', 'pointer-events-none', '-translate-y-full');
+            main.classList.remove('hidden');
             setTimeout(() => {
-                cover.classList.add('hidden');
-                main.classList.remove('hidden');
-                setTimeout(() => { 
-                    main.style.opacity = '1'; 
-                    checkVisibility(); 
-                }, 50);
-            }, 1000);
+                main.classList.add('opacity-100');
+                musicBtn.classList.remove('hidden');
+                // Mulai musik saat undangan dibuka
+                if(player && player.playVideo) {
+                    player.playVideo();
+                    isPlaying = true;
+                    musicBtn.classList.add('rotate');
+                }
+                checkVisibility();
+            }, 100);
         }
 
-        function copyAccount() {
-            const rekText = document.getElementById('rekening').innerText;
-            navigator.clipboard.writeText(rekText);
-            const msg = document.getElementById('copy-msg');
-            msg.style.opacity = '1';
-            setTimeout(() => msg.style.opacity = '0', 2000);
-        }
+        // COUNTDOWN TIMER
+        const targetDate = new Date("May 20, 2026 11:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds_real').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
 
+        // ANIMATION ON SCROLL
         function checkVisibility() {
             const elements = document.querySelectorAll('.animate-up');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top <= window.innerHeight * 0.9) {
+                if (rect.top < window.innerHeight * 0.9) {
                     el.classList.add('visible');
                 }
             });
         }
 
-        function submitWish(event) {
-            even
+        // WISH SUBMISSION
+        function submitWish(e) {
+            e.preventDefault();
+            const name = document.getElementById('wish-name').value;
+            const message = document.getElementById('wish-message').value;
+            const container = document.getElementById('wish-container');
+
+            const item = document.createElement('div');
+            item.className = "bg-white/90 p-6 rounded-xl border border-stone-200 text-left shadow-sm animate-up visible";
+            item.innerHTML = `<p class="font-bold text-stone-800 mb-1">${name}</p>
+                             <p class="text-stone-600 text-sm italic">"${message}"</p>`;
+            
+            container.prepend(item);
+            document.getElementById('wish-form').reset();
+        }
+
+        // AI GREETING GENERATOR
+        async function generateAIWish() {
+            const apiKey = ""; // Environment handle key automatically
+            const btn = document.getElementById('ai-btn');
+            const spinner = document.getElementById('ai-spinner');
+            const sparkles = document.getElementById('ai-sparkles');
+            const textArea = document.getElementById('wish-message');
+
+            btn.disabled = true;
+            spinner.classList.remove('hidden');
+            sparkles.classList.add('hidden');
+
+            const prompt = "Buatkan ucapan selamat pernikahan yang puitis dan islami untuk Jefry dan Farah dalam bahasa Indonesia yang menyentuh hati. Maksimal 3 kalimat.";
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }]
+                    })
+                });
+
+                const data = await response.json();
+                const text = data.candidates[0].content.parts[0].text;
+                textArea.value = text.trim();
+            } catch (error) {
+                console.error("AI Error:", error);
+                textArea.value = "Selamat menempuh hidup baru Jefry & Farah! Semoga menjadi keluarga sakinah mawaddah warahmah selamanya.";
+            } finally {
+                btn.disabled = false;
+                spinner.classList.add('hidden');
+                sparkles.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
